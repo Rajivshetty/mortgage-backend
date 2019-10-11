@@ -34,7 +34,7 @@ public class LoginServiceImpl implements LoginService {
 
 
 
-		customer.setPassword(loginRequestDto.getPassword());*/
+		customer.setPassword(loginRequestDto.getPassword());
 
 
 		LoginResponseDto loginResponseDto = new LoginResponseDto();
