@@ -20,7 +20,6 @@ public class LoanScheduler {
 
 	@Scheduled(fixedRate = 100000)
 	public void loanDeduction() {
-		System.out.println("test" + LocalDateTime.now());
 		List<Mortagage> loans = loanRepository.findAll();
 
 		List<Mortagage> recurredLoan = new ArrayList<>();
@@ -42,19 +41,16 @@ public class LoanScheduler {
 
 	public Double interestCalculation(Double rateOfInterest, Double balanceAmount) {
 		Double interest = ((balanceAmount * rateOfInterest) / CustomerUtil.MONTH) * (100);
-		System.out.println("interest " + interest);
 		return interest;
 	}
 
 	public Double principalCalculation(Double emi, Double interestAmount) {
 		Double principalAmount = emi - interestAmount;
-		System.out.println("principalAmount " + principalAmount);
 		return principalAmount;
 	}
 
 	public Double balanceAmount(Double balanceAmount, Double monthlyPrinicipalAmount) {
 		Double principalBalance = balanceAmount - monthlyPrinicipalAmount;
-		System.out.println("principalBalance " + principalBalance);
 		return principalBalance;
 	}
 

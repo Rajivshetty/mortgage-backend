@@ -12,11 +12,11 @@ import com.bank.mortagage.repository.LoginRepository;
 import com.bank.mortagage.util.CustomerUtil;
 
 @Service
-public class LoginServiceImpl implements LoginService{
-	
+public class LoginServiceImpl implements LoginService {
+
 	@Autowired
 	LoginRepository loginRepository;
-	
+
 	@Override
 
 	public LoginResponseDto login(LoginRequestDto loginRequestDto) {
@@ -32,6 +32,11 @@ public class LoginServiceImpl implements LoginService{
 		}
 
 
+
+
+		customer.setPassword(loginRequestDto.getPassword());*/
+
+
 		LoginResponseDto loginResponseDto = new LoginResponseDto();
 
 		loginResponseDto.setCustomerId(customer.getCustomerId());
@@ -44,5 +49,4 @@ public class LoginServiceImpl implements LoginService{
 
 	}
 
-	
 }
