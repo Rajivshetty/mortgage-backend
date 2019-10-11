@@ -24,18 +24,15 @@ public class LoginServiceImpl implements LoginService {
 		String name = loginRequestDto.getName();
 		String password = loginRequestDto.getPassword();
 
-		Customer customer = loginRepository.findByCustomerNameAndPassword(loginRequestDto.getName(), loginRequestDto.getPassword());
+		Customer customer = loginRepository.findByCustomerNameAndPassword(loginRequestDto.getName(),
+				loginRequestDto.getPassword());
 
 		if (customer == null) {
 
 			throw new CommonException(CustomerUtil.CUSTOMER_NOT_FOUND);
 		}
 
-
-
-
 		customer.setPassword(loginRequestDto.getPassword());
-
 
 		LoginResponseDto loginResponseDto = new LoginResponseDto();
 
