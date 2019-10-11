@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name="mortagage")
 public class Mortagage {
@@ -83,7 +85,6 @@ public void setCustomerId(Integer customerId) {
 }
 public Mortagage() {
 	super();
-	// TODO Auto-generated constructor stub
 }
 
 
