@@ -14,8 +14,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="mortagage")
 public class Mortagage {
@@ -89,7 +87,6 @@ public void setCustomerId(Integer customerId) {
 }
 public Mortagage() {
 	super();
-	// TODO Auto-generated constructor stub
 }
 
 

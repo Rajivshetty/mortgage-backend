@@ -9,8 +9,6 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 public class ErrorResponse implements Serializable {
 	/**
 	* 
