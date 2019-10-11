@@ -4,19 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bank.mortagage.dto.LoginRequestDto;
-import com.bank.mortagage.dto.LoginResponseDto;
-import com.bank.mortagage.service.LoginService;
+import com.bank.mortagage.dto.AccountDetailsDto;
+import com.bank.mortagage.service.CustomerService;
 
 import lombok.extern.slf4j.Slf4j;
-
-
-
 
 @RestController
 
@@ -25,21 +21,14 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api")
 
 @Slf4j
-public class LoginController {
+public class CustomerController {
 	
-
 	@Autowired
-
-	LoginService loginService;
-
+	CustomerService customerService;
 	
-	@PostMapping("/login")
-
-	public ResponseEntity<LoginResponseDto> verify(@RequestBody LoginRequestDto loginRequestDto) {
-
-
-
-		return new ResponseEntity<>(loginService.login(loginRequestDto), HttpStatus.FOUND);
-
+	@GetMapping("/user/{id}/accountDetails")
+	public ResponseEntity<AccountDetailsDto> getAccDetails(@PathVariable int id){
+		
+		return new ResponseEntity<>(customerService.getAccDetails(id),HttpStatus.OK);
 	}
 }

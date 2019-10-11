@@ -1,5 +1,12 @@
 package com.bank.mortagage.service;
 
-public class CustomerService {
+import org.springframework.stereotype.Service;
+
+import com.bank.mortagage.dto.AccountDetailsDto;
+
+@Service
+public interface CustomerService {
+
+	AccountDetailsDto getAccDetails(int id);
 
 }
